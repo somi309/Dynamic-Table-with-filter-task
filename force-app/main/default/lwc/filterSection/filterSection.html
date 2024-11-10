@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Filter: ">
+        <div class="slds-grid slds-gutters slds-align_absolute-center">
+            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                <lightning-combobox
+                    name="country"
+                    label="Country"
+                    value={selectedCountry}
+                    placeholder="Select Country"
+                    options={countries}
+                    onchange={handleCountry}
+                    class="slds-input">
+                </lightning-combobox>
+            </div>
+            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                <lightning-combobox
+                    name="state"
+                    label="State"
+                    value={selectedState}
+                    placeholder="Select State"
+                    options={states}
+                    onchange={handleState}
+                    class="slds-input">
+                </lightning-combobox>
+            </div>
+        </div>
+        <template if:true={shouldRenderChild}>
+            <c-list-view-section country={selectedCountry} state={selectedState} oncolumnschange={handleColumnsChange}></c-list-view-section>
+        </template>
+    </lightning-card>
+</template>

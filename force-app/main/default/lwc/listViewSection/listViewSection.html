@@ -1,0 +1,37 @@
+<template>
+        <lightning-card title="">
+   <div class="slds-float_right slds-form-element ">
+        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+        <lightning-input
+            value={searchTerm}
+            onchange={handleSearch}
+            placeholder="Search..."
+            
+           >
+        </lightning-input>
+        <span class="slds-input__icon slds-input__icon_right slds-icon-text-default">
+            <lightning-icon icon-name="utility:search" size="x-small  "></lightning-icon>
+        </span>
+        </div>
+    </div>
+    
+     <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr>
+                    <template for:each={columns} for:item="column">
+                        <th key={column} scope="col">{column}</th>
+                    </template>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={rows} for:item="row">
+                    <tr key={row.rowKey}>
+                        <template for:each={row.fieldValues} for:item="field">
+                            <td key={field.key}>{field.value}</td>
+                        </template>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </lightning-card>
+ </template>

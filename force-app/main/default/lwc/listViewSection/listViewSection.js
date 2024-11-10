@@ -23,7 +23,6 @@ export default class ListViewSection extends LightningElement {
                 if (data.length > 0) {
                     // Extract columns (field labels) from the first record
                     this.columns = data[0].fieldData.map(field => field.fieldLabel);
-                    console.log('Columns:', this.columns);
 
                     // Process each account record to add unique keys
                     this.rows = data.map(account => {

@@ -101,15 +101,12 @@ public with sharing class AccountDataService {
             }
 
         } catch (QueryException qe) {
-            System.debug('QueryException: ' + qe.getMessage());
             // You can handle a specific exception like QueryException here
             throw new AuraHandledException('An error occurred while retrieving data. Please try again later.');
         } catch (DmlException de) {
-            System.debug('DmlException: ' + de.getMessage());
             // Handle DML specific errors if applicable
             throw new AuraHandledException('An error occurred while saving data. Please try again later.');
         } catch (Exception e) {
-            System.debug('Exception: ' + e.getMessage());
             // Generic catch block for all other exceptions
             throw new AuraHandledException('An unexpected error occurred. Please contact support.');
         }
